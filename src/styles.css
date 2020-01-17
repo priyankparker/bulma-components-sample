@@ -1,0 +1,106 @@
+/* .section-background {
+    background-image: linear-gradient(-135deg, violet, purple)
+}
+
+.container-background {
+    background-image: linear-gradient(-135deg, rgb(215, 202, 236), rgb(212, 172, 212))
+} */
+
+.links {
+  color: #363636;
+}
+
+.links:hover {
+  color: #3273dc;
+}
+
+.fitImage {
+  object-fit: cover;
+  /* width: 80%; */
+  /* width: 50%; */
+  /* width: 100%; */
+  /* height: 40vh; */
+}
+
+.title-one-border {
+  border-left: "0.75rem solid #00d1b2";
+  border-bottom: "0.75rem solid #00d1b2";
+  padding: 0.2rem 5rem;
+}
+
+.title-one-color {
+  color: '#00d1b2';
+}
+
+.large-padding-bottom {
+    padding-bottom: 0.8rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.is-padding-0d5{
+  padding: 0.5rem
+}
+
+.is-padding-0d75{
+  padding: 0.75rem
+}
+
+.is-margin-v-0d5 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.is-margin-v-0d2{
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.is-margin-h-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.is-margin-b-0 {
+  margin-bottom: 0;
+}
+
+.subtitle:not(:last-child).is-margin-b-0d5 {
+  margin-bottom: 0.5rem;
+}
+
+.is-margin-t-0 {
+  margin-top: 0;
+}
+
+.adjacent-border + .adjacent-border {
+  border-top: 1px solid rgba(219, 219, 219, 0.5);
+}
+
+/* .has-order-light-ter {
+  border
+} */
+
+.is-divider-vertical-videos.is-divider-vertical::before {
+  border-left: 2px solid #3ba393;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .medium-margin-bottom-mobile {
+    margin-bottom: 0.99rem !important;
+  }
+  .no-margin-bottom-mobile.columns:not(:last-child) {
+    margin-bottom: 0;
+  }
+  .no-padding-bottom-mobile {
+    padding-bottom: 0;
+  }
+  .low-margin-mobile {
+    margin: 0.5rem 0;
+  }
+  .no-padding-mobile {
+    padding: 0;
+  }
+}
