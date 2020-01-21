@@ -10,52 +10,51 @@ import MediaObject from '../../../components/MediaObject';
 import MediaObjectImage from '../../../components/MediaObjectImage';
 
 function PanelSix({
-    primaryStories = [],
-    secondaryStories = [],
-    primaryStoriesLength = primaryStories.length || 5,
-    secondaryStoriesLength = secondaryStories.length || 3,
-    ...props
+  primaryStories = [],
+  secondaryStories = [],
+  primaryStoriesLength = primaryStories.length || 5,
+  secondaryStoriesLength = secondaryStories.length || 3,
+  ...props
 }) {
-    console.log(primaryStoriesLength);
-    const _primaryStories = primaryStories.slice(0, primaryStoriesLength);
-    const _secondaryStories = secondaryStories.slice(0, secondaryStoriesLength);
+  console.log(primaryStoriesLength);
+  const _primaryStories = primaryStories.slice(0, primaryStoriesLength);
+  const _secondaryStories = secondaryStories.slice(0, secondaryStoriesLength);
 
-    return (
-        <>
-            <Section {...props}>
-                <Container>
-                    <Columns>
-                        {_primaryStories.map((story, i) => (
-                            <>
-                                <Column><StoryOne {...story} /></Column>
+  return (
+    <>
+      <Section {...props}>
+        <Container>
+          <Columns>
+            {_primaryStories.map((story, i) => (
+              <>
+                <Column>
+                  <StoryOne {...story} />
+                </Column>
 
-                                {secondaryStoriesLength && (
-                                    <Divider vertical={i < 5 ? true : false} style={{padding: '1rem 0'}}/>
-                                )}
-                            </>
-                        ))}
-                        <Column>
-                            {_secondaryStories.map(
-                                ({ url, title, ...story }, i) => (
-                                    <>
-                                        {url && (
-                                                <MediaObject
-                                                url={url}
-                                                showImage={false}
-                                                {...story}
-                                                >
-                                                    {title}
-                                                </MediaObject>
-                                        )}
-                                    </>
-                                )
-                            )}
-                        </Column>
-                    </Columns>
-                </Container>
-            </Section>
-        </>
-    );
+                {secondaryStoriesLength && (
+                  <Divider
+                    vertical={i < 5 ? true : false}
+                    style={{ padding: '1rem 0' }}
+                  />
+                )}
+              </>
+            ))}
+            <Column>
+              {_secondaryStories.map(({ url, title, ...story }, i) => (
+                <>
+                  {url && (
+                    <MediaObject url={url} showImage={false} {...story}>
+                      {title}
+                    </MediaObject>
+                  )}
+                </>
+              ))}
+            </Column>
+          </Columns>
+        </Container>
+      </Section>
+    </>
+  );
 }
 
 export default PanelSix;

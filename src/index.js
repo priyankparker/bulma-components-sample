@@ -64,10 +64,6 @@ function App() {
     _videos = chunk(_videos.slice(0, totalvideos), 3);
     const primaryColor = '#3ba393';
 
-    console.log('bulmaCarousel: ', bulmaCarousel);
-
-    
-
     return (
         <Router>
             <Home
@@ -75,16 +71,28 @@ function App() {
                 videos={_videos}
                 primaryColor={primaryColor}
                 path="/"
+                key={1}
             />
-            <Topic path="news" primaryColor={primaryColor} isMobile={isMobile} />
-            <Topic path="sports" items={topSportsStories.results} primaryColor={primaryColor} isMobile={isMobile} />
-            <Topic path="world" items={topWorldStories.results} primaryColor={primaryColor} isMobile={isMobile} />
-            <Topic path="movies" items={topMoviesStories.results} primaryColor={primaryColor} isMobile={isMobile} />
-            <Topic path="arts" items={topArtsStories.results} primaryColor={primaryColor} isMobile={isMobile} />
-            <Topic path="business" items={topBusinessStories.results} primaryColor={primaryColor} isMobile={isMobile} />
-            <Topic path="tech" items={topTechStories.results} primaryColor={primaryColor} isMobile={isMobile} />
-            <Topic path="science" items={topScienceStories.results} primaryColor={primaryColor} isMobile={isMobile} />
-            <Topic path="fashion" items={topFashionStories.results} primaryColor={primaryColor} isMobile={isMobile} />
+            <Topic path="/news" primaryColor={primaryColor} isMobile={isMobile} 
+                key={2} />
+            <Topic path="/news/:id" primaryColor={primaryColor} isMobile={isMobile} 
+                key={3}/>
+            <Topic path="/sports" items={topSportsStories.results} primaryColor={primaryColor} isMobile={isMobile} 
+                key={4}/>
+            <Topic path="/world" items={topWorldStories.results} primaryColor={primaryColor} isMobile={isMobile} 
+                key={5}/>
+            <Topic path="/movies" items={topMoviesStories.results} primaryColor={primaryColor} isMobile={isMobile} 
+                key={6}/>
+            <Topic path="/arts" items={topArtsStories.results} primaryColor={primaryColor} isMobile={isMobile} 
+                key={7}/>
+            <Topic path="/business" items={topBusinessStories.results} primaryColor={primaryColor} isMobile={isMobile}
+                key={8}/>
+            <Topic path="/tech" items={topTechStories.results} primaryColor={primaryColor} isMobile={isMobile} 
+                key={9}/>
+            <Topic path="/science" items={topScienceStories.results} primaryColor={primaryColor} isMobile={isMobile} 
+                key={10}/>
+            <Topic path="/fashion" items={topFashionStories.results} primaryColor={primaryColor} isMobile={isMobile} 
+                key={11}/>
             
 
 

@@ -42,7 +42,6 @@ function PanelEight({ className = '', style = {}, videos = [], isMobile = false,
                                 className='is-6'
                             >
                                 <Iframe src={videos[2].src} />
-                                {console.log('videos[2].name: ', videos[2].name)}
                                 <Subtitle className={videos[2].name.toLowerCase().includes('zombieland') ? "is-7 is-capitalized " :"is-6 is-capitalized "}>
                                     {trimAfterHyphen(videos[2].name).toLowerCase()}
                                 </Subtitle>
