@@ -1,15 +1,24 @@
 /* eslint-disable */
-import React from "react";
+import React from 'react';
 
-export default function NavBarSignUp() {
-	return (
-		<div className="buttons">
-          <a className="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a className="button is-light">
-            Log in
-          </a>
-        </div>
-    )
+export default function NavBarSignUp({
+  handleNavbarSubscribe = () => {},
+  handleNavbarLogin = () => {},
+}) {
+  return (
+    <div className="buttons">
+      <a
+        className="button is-primary is-medium"
+        onClick={() => handleNavbarSubscribe()}
+      >
+        <strong>Subscribe</strong>
+      </a>
+      <a
+        className="button is-primary is-outlined is-medium"
+        onClick={() => handleNavbarLogin()}
+      >
+        Log in
+      </a>
+    </div>
+  );
 }

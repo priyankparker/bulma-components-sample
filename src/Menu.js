@@ -4,6 +4,10 @@ import React, { useState } from 'react';
 import NavBarSignUp from './components/NavBarSignUp';
 // import Link from './components/Link';
 import { Link } from '@reach/router';
+import Modal from './components/Modal';
+import LoginForm from './components/LoginForm';
+import SignupForm from './components/SignupForm';
+import fetch from 'node-fetch';
 
 function NavbarDropdownLabel({ label = false }) {
   return <>{label && <NavbarLink>{label}</NavbarLink>}</>;
@@ -30,151 +34,124 @@ function Menu({
   ...props
 }) {
   const [isActive, setIsActive] = useState(false);
+  const [isSubscribeModalActive, setIsSubscribeModalActive] = useState(true);
+  const [isLoginModalActive, setIsLoginModalActive] = useState(false); //update debug
+  const i = 0;
+  function incrementServerCounter() {
+    console.log('asdwadasda')
+    return fetch('http://localhost:3001/')
+    .then(r => r.text())
+    .then(r => console.log(`${i}. --->${r}`))
+    .catch(err => console.log('error: ', err))
+  }
+  async function handleLogin(loginData) {
+    console.log('loginData: ', loginData);
+    await incrementServerCounter()
+    await incrementServerCounter()
+  }
 
-  // const setHomeRoute = () => setRoute('home');
-  // const setNewsRoute = () => setRoute('news');
-  // const setSportsRoute = () => setRoute('sports');
-  // const setBusinessRoute = () => setRoute('business');
-  // const setContactRoute = () => setRoute('contact');
-  // const setAboutRoute = () => setRoute('about');
-  // const setMoviesRoute = () => setRoute('movies');
-  // const setFashionRoute = () => setRoute('fashion');
-  // const setWorldRoute = () => setRoute('world');
-  // const setTechRoute = () => setRoute('tech');
-  // const setArtRoute = () => setRoute('Art');
-  // const setFoodRoute = () => setRoute('food');
-  // const setCommunityRoute = () => setRoute('community');
+  function handleSignUp(signUpData) {
+    console.log('signUpData: ', signUpData);
+  }
+
   return (
-    <nav
-      className={`navbar ${className}`}
-      role="navigation"
-      aria-label="main navigation"
-      style={{ ...style }}
-      {...props}
-    >
-      <NavbarBrand
-        isActive={isActive}
-        setIsActive={setIsActive}
-        logoLink="https://bulma.io/"
-        logoImgLink="https://bulma.io/images/bulma-logo.png"
-        showLogo={false}
-      />
-      <div id={id} className={`navbar-menu ${isActive && 'is-active'}`}>
-        <NavbarStart>
-          <NavbarItem>
-            <Link to="/" className="links">
-              Home
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link to="/news" className="links">
-              News
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link to="/sports" className="links">
-              Sports
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link to="/world" className="links">
-              World
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link to="/movies" className="links">
-              Movies
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link to="/arts" className="links">
-              Arts
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link to="/business" className="links">
-              Business
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link to="/tech" className="links">
-              Tech
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link to="/science" className="links">
-              Science
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link to="/fashion" className="links">
-              Fashion
-            </Link>
-          </NavbarItem>
-          {/* <NavbarItem>
-                        <Link className="links" onClick={setCommunityRoute}>
-                            Community
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Link className="links" onClick={setBusinessRoute}>
-                            Business
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Link className="links" onClick={setTechRoute}>
-                            Tech
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Link className="links" onClick={setMoviesRoute}>
-                            Movies
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Link className="links" onClick={setFashionRoute}>
-                            Fashion
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Link className="links" onClick={setFoodRoute}>
-                            Food
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Link className="links" onClick={setArtRoute}>
-                            Arts
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Link className="links" onClick={setWorldRoute}>
-                            World
-                        </Link>
-                    </NavbarItem>
+    <>
+      <nav
+        className={`navbar ${className}`}
+        role="navigation"
+        aria-label="main navigation"
+        style={{ ...style }}
+        {...props}
+      >
+        <NavbarBrand
+          isActive={isActive}
+          setIsActive={setIsActive}
+          logoLink="https://bulma.io/"
+          logoImgLink="https://bulma.io/images/bulma-logo.png"
+          showLogo={false}
+        />
+        <div id={id} className={`navbar-menu ${isActive && 'is-active'}`}>
+          <NavbarStart>
+            <NavbarItem>
+              <Link to="/" className="links">
+                Home
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link to="/news" className="links">
+                News
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link to="/sports" className="links">
+                Sports
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link to="/world" className="links">
+                World
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link to="/movies" className="links">
+                Movies
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link to="/arts" className="links">
+                Arts
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link to="/business" className="links">
+                Business
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link to="/tech" className="links">
+                Tech
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link to="/science" className="links">
+                Science
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link to="/fashion" className="links">
+                Fashion
+              </Link>
+            </NavbarItem>
+          </NavbarStart>
 
-                    <NavbarItemDropdown label="More">
-                        <NavbarItem>
-                            <Link className="links" onClick={setContactRoute}>
-                                Contact Us
-                            </Link>
-                        </NavbarItem>
-                        <NavbarItem>
-                            <Link className="links" onClick={setAboutRoute}>
-                                About Us
-                            </Link>
-                        </NavbarItem>
-                        <Divider />
-                        <NavbarItem text="Report an issue" />
-                    </NavbarItemDropdown> */}
-        </NavbarStart>
+          <NavbarEnd>
+            <NavbarItem>
+              <NavBarSignUp
+                handleNavbarSubscribe={() => setIsSubscribeModalActive(true)}
+                handleNavbarLogin={() => setIsLoginModalActive(true)}
+              />
+            </NavbarItem>
+          </NavbarEnd>
+        </div>
+      </nav>
 
-        <NavbarEnd>
-          <NavbarItem>
-            <NavBarSignUp />
-          </NavbarItem>
-        </NavbarEnd>
-      </div>
-    </nav>
+      {isLoginModalActive && (
+        <Modal isModalActive={isLoginModalActive} setIsModalActive={setIsLoginModalActive}>
+          <LoginForm
+            setIsActive={setIsLoginModalActive}
+            handleLogin={handleLogin}
+          />
+        </Modal>
+      )}
+
+      {isSubscribeModalActive && (
+        <Modal isModalActive={isSubscribeModalActive} setIsModalActive={setIsSubscribeModalActive}>
+          <SignupForm
+            setIsActive={setIsSubscribeModalActive}
+          />
+        </Modal>
+      )}
+    </>
   );
 }
 
@@ -229,7 +206,13 @@ export function NavbarItem({ children, className = '', style = {}, ...props }) {
           }}
           {...props}
         >
-          {children}
+          <span
+            style={{
+              fontSize: '1.25rem',
+            }}
+          >
+            {children}
+          </span>
         </div>
       )}
     </>

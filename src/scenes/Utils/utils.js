@@ -149,3 +149,5 @@ val , 0)
 export const isTruthy = x => x ? true : false
 
 export const stringify = JSON.stringify;
+
+export const handleInputChange = ({event: {target: {name, value}}}) => ({[name]: value})

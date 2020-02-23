@@ -16,7 +16,6 @@ function PanelSix({
   secondaryStoriesLength = secondaryStories.length || 3,
   ...props
 }) {
-  console.log(primaryStoriesLength);
   const _primaryStories = primaryStories.slice(0, primaryStoriesLength);
   const _secondaryStories = secondaryStories.slice(0, secondaryStoriesLength);
 
